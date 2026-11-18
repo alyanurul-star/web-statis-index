@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.banner-atas {
+    background-color: #f6faf7;
+    color: rgb(0, 0, 0);
+    padding: 10px 0;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+.banner-atas h3 {
+    margin-top: auto;
+    font-family:Cambria;
+    display: flex;
+    align-content: space-between;
+    align-items: flex-start;
+} 

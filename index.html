@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Alya</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #F5E6D3;
+    color: #76563F;
+}
+
+/* NAVBAR */
+nav {
+    width: 100%;
+    min-height: 75px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFF9F2;
+    box-shadow: 0 3px 15px #E8D2BC;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav h2 {
+    color: #A87956;
+    font-size: 27px;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: #76563F;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #B68B68;
+}
+
+/* HOME */
+.home {
+    min-height: 90vh;
+    padding: 70px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    background: linear-gradient(135deg, #F5E6D3, #FFF9F2);
+    overflow: hidden;
+}
+
+.home-text {
+    max-width: 550px;
+}
+
+.hello {
+    color: #A87956;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.home-text h1 {
+    font-size: 48px;
+    color: #8B6348;
+    margin-bottom: 12px;
+}
+
+.home-text h3 {
+    margin-bottom: 15px;
+    color: #956B4E;
+}
+
+.home-text p {
+    line-height: 1.7;
+}
+
+/* TOMBOL */
+.tombol {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 13px 25px;
+    background: #C49A78;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px #D8B89A;
+    transition: 0.3s;
+}
+
+.tombol:hover {
+    background: #956B4E;
+    transform: translateY(-5px);
+}
+
+/* FOTO */
+.foto {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    flex-shrink: 0;
+}
+
+.lingkaran {
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 9px solid #FFF9F2;
+    background: #E8D2BC;
+    box-shadow: 0 10px 30px #D8B89A;
+}
+
+.lingkaran img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* HIASAN FOTO */
+.hiasan {
+    position: absolute;
+    color: #B68B68;
+    font-size: 40px;
+    z-index: 2;
+    animation: melayang 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.satu {
+    top: -15px;
+    right: 10px;
+}
+
+.dua {
+    bottom: 15px;
+    left: -20px;
+    animation-delay: 1s;
+}
+
+.tiga {
+    top: 45%;
+    right: -25px;
+    animation-delay: 1.5s;
+}
+
+.empat {
+    top: 15%;
+    left: -25px;
+    font-size: 27px;
+    animation-delay: 0.5s;
+}
+
+.lima {
+    bottom: -5px;
+    right: 40px;
+    font-size: 25px;
+    animation-delay: 2s;
+}
+
+/* ANIMASI */
+@keyframes melayang {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(10deg);
+    }
+}
+
+/* SECTION */
+.section {
+    padding: 80px 10%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.section h2 {
+    color: #8B6348;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.section h2::after {
+    content: " ♡";
+    color: #C49A78;
+}
+
+/* HIASAN BUNGA */
+.bunga {
+    position: absolute;
+    color: #B68B68;
+    font-size: 45px;
+    opacity: 0.6;
+    pointer-events: none;
+    animation: melayang 4s ease-in-out infinite;
+}
+
+.bunga-kiri {
+    top: 20px;
+    left: 25px;
+}
+
+.bunga-kanan {
+    bottom: 20px;
+    right: 25px;
+    animation-delay: 1s;
+}
+
+/* ABOUT */
+.about-box {
+    max-width: 750px;
+    margin: auto;
+    padding: 35px;
+    background: #FFF9F2;
+    border: 2px solid #E8D2BC;
+    border-radius: 25px;
+    box-shadow: 0 5px 20px #E8D2BC;
+    transition: 0.4s;
+}
+
+.about-box p {
+    line-height: 1.8;
+}
+
+.about-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px #D8B89A;
+    border-color: #C49A78;
+}
+
+/* PORTFOLIO */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 250px;
+    padding: 30px 20px;
+    background: #FFF9F2;
+    border: 2px solid #E8D2BC;
+    border-radius: 25px;
+    box-shadow: 0 5px 20px #E8D2BC;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px #D8B89A;
+    border-color: #C49A78;
+}
+
+.card span {
+    font-size: 40px;
+}
+
+.card h3 {
+    color: #8B6348;
+    margin: 15px 0 10px;
+}
+
+.card p {
+    line-height: 1.6;
+}
+
+/* PENDIDIKAN */
+.pendidikan {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.sekolah {
+    width: 220px;
+    padding: 25px 15px;
+    background: #FFF9F2;
+    border: 2px solid #E8D2BC;
+    border-radius: 25px;
+    box-shadow: 0 5px 20px #E8D2BC;
+    transition: 0.4s;
+}
+
+.sekolah:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px #D8B89A;
+    border-color: #C49A78;
+}
+
+.sekolah img {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.sekolah h3 {
+    color: #8B6348;
+    margin-bottom: 8px;
+}
+
+.dekorasi {
+    color: #B68B68;
+    font-size: 20px;
+    margin: 0 5px;
+}
+
+/* CONTACT */
+.contact {
+    max-width: 650px;
+    margin: auto;
+    padding: 35px;
+    background: #FFF9F2;
+    border: 2px solid #E8D2BC;
+    border-radius: 25px;
+    box-shadow: 0 5px 20px #E8D2BC;
+    transition: 0.4s;
+}
+
+.contact:hover {
+    box-shadow: 0 10px 30px #D8B89A;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #E8D2BC;
+    border-radius: 15px;
+    outline: none;
+    font-family: Arial, sans-serif;
+    color: #76563F;
+    background: #FFFCF8;
+    transition: 0.3s;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    border-color: #B68B68;
+    box-shadow: 0 0 10px #E8D2BC;
+}
+
+.contact textarea {
+    height: 120px;
+    resize: none;
+}
+
+.contact button {
+    padding: 14px;
+    border: none;
+    border-radius: 20px;
+    background: #C49A78;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact button:hover {
+    background: #956B4E;
+    transform: scale(1.03);
+}
+
+/* FOOTER */
+footer {
+    padding: 25px;
+    text-align: center;
+    background: #E8D2BC;
+    color: #76563F;
+    border-top: 3px solid #D8B89A;
+    letter-spacing: 1px;
+}
+
+footer span {
+    color: #956B4E;
+}
+
+/* RESPONSIVE HP */
+@media (max-width: 700px) {
+    nav {
+        height: auto;
+        min-height: 75px;
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav ul {
+        gap: 13px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    nav h2 {
+        font-size: 24px;
+    }
+
+    .home {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 60px 7%;
+        gap: 35px;
+    }
+
+    .home-text h1 {
+        font-size: 35px;
+    }
+
+    .home-text h3 {
+        font-size: 18px;
+    }
+
+    .foto {
+        width: 280px;
+        height: 280px;
+    }
+
+    .lingkaran {
+        width: 270px;
+        height: 270px;
+    }
+
+    .hiasan {
+        font-size: 30px;
+    }
+
+    .section {
+        padding: 65px 7%;
+    }
+
+    .section h2 {
+        font-size: 27px;
+    }
+
+    .about-box {
+        padding: 25px 20px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .sekolah {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .contact {
+        padding: 25px 18px;
+    }
+
+    .bunga {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2>♡ Alya</h2>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#pendidikan">Pendidikan</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HOME -->
+<section class="home" id="home">
+    <div class="home-text">
+        <p class="hello">✧ Hello, I'm ✧</p>
+        <h1>Alya Nurul Asyifa</h1>
+        <h3>Pelajar Jurusan RPL 💻</h3>
+
+        <p>
+            Hai! Aku seorang pelajar yang sedang belajar
+            pemrograman, desain, dan pembuatan website.
+            Aku suka mencoba hal baru dan mengembangkan
+            kreativitas di dunia teknologi.
+        </p>
+
+        <a href="#about" class="tombol">Tentang Saya ♡</a>
+    </div>
+
+    <div class="foto">
+        <span class="hiasan satu">✦</span>
+        <span class="hiasan dua">♡</span>
+        <span class="hiasan tiga">✿</span>
+        <span class="hiasan empat">✧</span>
+        <span class="hiasan lima">♡</span>
+
+        <div class="lingkaran">
+            <img src="assets/poto alya.jpeg" alt="Foto Alya">
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+    <span class="bunga bunga-kiri">✿</span>
+    <span class="bunga bunga-kanan">❀</span>
+
+    <h2>Tentang Saya</h2>
+
+    <div class="about-box">
+        <p>
+            Saya adalah pelajar jurusan Rekayasa Perangkat
+            Lunak yang tertarik dengan dunia teknologi dan
+            desain website. Saya sedang belajar HTML, CSS,
+            dan pemrograman untuk menambah pengetahuan
+            serta mengembangkan kemampuan saya.
+            Saya juga senang mempelajari hal-hal baru
+            yang berhubungan dengan teknologi.
+        </p>
+    </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section" id="portfolio">
+    <span class="bunga bunga-kiri">✿</span>
+    <span class="bunga bunga-kanan">❀</span>
+
+    <h2>Portfolio</h2>
+
+    <div class="cards">
+        <div class="card">
+            <span>🎀</span>
+            <h3>Website</h3>
+            <p>
+                Membuat website sederhana menggunakan
+                HTML dan CSS.
+            </p>
+        </div>
+
+        <div class="card">
+            <span>🌷</span>
+            <h3>UI Design</h3>
+            <p>
+                Membuat desain interface yang
+                sederhana dan menarik.
+            </p>
+        </div>
+
+        <div class="card">
+            <span>🤎</span>
+            <h3>Aplikasi</h3>
+            <p>
+                Membuat rancangan aplikasi untuk
+                kegiatan sekolah.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- PENDIDIKAN -->
+<section class="section" id="pendidikan">
+    <span class="bunga bunga-kiri">✿</span>
+    <span class="bunga bunga-kanan">❀</span>
+
+    <h2>Pendidikan</h2>
+
+    <div class="pendidikan">
+        <div class="sekolah">
+            <img src="assets/logo mi.jpg" alt="Logo MI">
+            <h3>SD</h3>
+            <p>Sekolah Dasar</p>
+            <span class="dekorasi">♡ ✧</span>
+        </div>
+
+        <div class="sekolah">
+            <img src="assets/logo p3sb tercinta.jpg" alt="Logo SMP">
+            <h3>SMP</h3>
+            <p>Sekolah Menengah Pertama</p>
+            <span class="dekorasi">♡ ✧</span>
+        </div>
+
+        <div class="sekolah">
+            <img src="assets/logo smk.jpeg" alt="Logo SMK">
+            <h3>SMK</h3>
+            <p>Sekolah Menengah Kejuruan</p>
+            <span class="dekorasi">♡ ✧</span>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+    <span class="bunga bunga-kiri">✿</span>
+    <span class="bunga bunga-kanan">❀</span>
+
+    <h2>Contact Me</h2>
+
+    <div class="contact">
+        <form onsubmit="event.preventDefault(); alert('Terima kasih sudah mengirim pesan!');">
+            <input type="text" placeholder="Alya Nurul Asyifa" required>
+            <input type="email" placeholder="@alyanrlasyifaa" required>
+            <textarea placeholder="kirim pesan" required></textarea>
+            <button type="submit">Kirim Pesan ♡</button>
+        </form>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>Made with <span>♡</span> by Alya <span>✿ ✧</span></p>
+</footer>
+
+</body>
+</html>
